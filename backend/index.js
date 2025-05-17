@@ -17,6 +17,15 @@ app.listen(port,()=>{
     
 })
 app.get("/",(req,res)=>{
-    res.render("index.ejs");
+    res.send("<h1> well come to sushant web page </h1>");
 })
 
+app.get("/:username/:id",(req,res)=>{
+    const {username,id}=req.params;
+    res.send("<h2> your name is "+username+" and your id is "+id+"</h2>");
+})
+
+app.get("/search",(req,res)=>{
+    const {q}=req.query;
+    res.send("<h2> your search is "+q+"</h2>");
+})
